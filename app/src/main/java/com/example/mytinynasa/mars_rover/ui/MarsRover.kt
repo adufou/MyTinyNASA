@@ -1,4 +1,4 @@
-package com.example.mytinynasa.ui.mars_rover
+package com.example.mytinynasa.mars_rover.ui
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.mytinynasa.R
+import com.example.mytinynasa.mars_rover.viewmodel.MarsRoverViewModel
 
 class MarsRover : Fragment() {
 

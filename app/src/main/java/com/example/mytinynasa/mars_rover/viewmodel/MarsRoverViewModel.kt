@@ -1,4 +1,4 @@
-package com.example.mytinynasa.ui.mars_rover
+package com.example.mytinynasa.mars_rover.viewmodel
 
 import androidx.lifecycle.ViewModel
 
