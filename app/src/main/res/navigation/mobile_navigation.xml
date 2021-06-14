@@ -22,4 +22,9 @@
         android:name="com.example.mytinynasa.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_apod"
+        android:name="com.example.mytinynasa.ui.apod.ApodFragment"
+        android:label="APOD"
+        tools:layout="@layout/apod_fragment" />
 </navigation>
