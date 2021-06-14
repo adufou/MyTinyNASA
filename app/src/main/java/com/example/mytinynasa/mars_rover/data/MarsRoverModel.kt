@@ -16,6 +16,4 @@ class MarsRoverModel {
         this.cameraInfo = cameraInfo
     }
 
-    public
-
 }
