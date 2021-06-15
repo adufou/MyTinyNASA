@@ -1,13 +1,11 @@
-package com.example.mytinynasa.mars_rover.viewmodel
+package com.example.mytinynasa.mars_rover
 
 
 import android.app.Activity
-import com.example.mytinynasa.MainActivity
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.mytinynasa.mars_rover.data.MarsRoverModel
 import com.example.mytinynasa.network.ApiClient
 import com.example.mytinynasa.network.ApiInterface
