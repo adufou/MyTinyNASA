@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".mars_rover.MarsRoverActivity"/>
+    android:layout_height="300dp"
+    tools:context=".mars_rover.MarsRoverActivity">
+
+    <TextView
+        android:id="@+id/item_cameraInfo"
+        android:layout_width="60dp"
+        android:layout_height="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.903"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="250dp" />
+
+    <TextView
+        android:id="@+id/item_date"
+        android:layout_width="60dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/item_rover"
+        tools:layout_editor_absoluteY="250dp" />
+
+    <TextView
+        android:id="@+id/item_rover"
+        android:layout_width="60dp"
+        android:layout_height="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/item_cameraInfo"
+        tools:layout_editor_absoluteY="250dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

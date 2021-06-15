@@ -9,5 +9,5 @@ import retrofit2.http.Query
 interface ApiInterface {
 
     @GET("mars-photos/api/v1/rovers/{roverType}/photos")
-    fun getMarsPhotos(@Path(value="roverType", encoded = true) roverType : String, @Query(value="camera") cameraType : String, @Query(value="api_key") apiKey : String) : Call<List<MarsRoverModel>>
+    fun getMarsPhotos(@Path(value="roverType", encoded = true) roverType : String?, @Query(value="camera") cameraType : String?, @Query(value="api_key") apiKey : String) : Call<List<MarsRoverModel>>
 }
