@@ -21,7 +21,7 @@ class MarsRoverFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.mars_rover_fragment, container, false)
+        return inflater.inflate(R.layout.mars_rover_item_list, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
