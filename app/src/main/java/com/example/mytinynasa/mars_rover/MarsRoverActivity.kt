@@ -21,7 +21,7 @@ import retrofit2.Response
 
 class MarsRoverActivity : AppCompatActivity() {
 
-    fun getMarsPhotos(roverType: String?, cameraType: String?, apiKey: String) : LiveData<List<MarsRoverModel>> {
+    private fun getMarsPhotos(roverType: String?, cameraType: String?, apiKey: String) : LiveData<List<MarsRoverModel>>? {
 
         val retrofit = ApiClient.getApiClient("https://api.nasa.gov/")
 
@@ -50,14 +50,15 @@ class MarsRoverActivity : AppCompatActivity() {
         }
 
         service.getMarsPhotos(roverType, cameraType, apiKey).enqueue(callback)
-        return results
+        //return results
+        return null
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mars_rover_item_list)
 
-        val data : List<MarsRoverModel>? = getMarsPhotos("Curiosity", null, ApiClient.apiKey).value
+        val data : List<MarsRoverModel>? = getMarsPhotos("Curiosity", null, ApiClient.apiKey)!!.value
 
         val MarsRoverRecyclerView : RecyclerView = findViewById(R.id.mars_rover_activity_list)
         MarsRoverRecyclerView.layoutManager = LinearLayoutManager(this@MarsRoverActivity)

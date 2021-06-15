@@ -26,7 +26,7 @@ class MarsRoverFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        activity = ViewModelProvider(this).get(MarsRoverActivity::class.java)
+        //activity = ViewModelProvider(this).get(MarsRoverActivity::class.java)
         // TODO: Use the ViewModel
     }
 
