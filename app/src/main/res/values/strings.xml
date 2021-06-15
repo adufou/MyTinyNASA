@@ -9,6 +9,6 @@
     <string name="author_louis">louis.santucci</string>
     <string name="author_leo">leo.tavernier</string>
     <string name="author_thomas">thomas.tourrette</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="this_list_is_empty">This list is empty</string>
 </resources>

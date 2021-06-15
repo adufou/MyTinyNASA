@@ -14,6 +14,6 @@
         android:id="@+id/eonetFragment"
         android:name="com.example.mytinynasa.eonet.ui.EonetFragment"
         android:label="@string/title_eonet"
-        tools:layout="@layout/fragment_eonet" />
+        tools:layout="@layout/eonet_fragment" />
 
 </navigation>

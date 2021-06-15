@@ -6,9 +6,17 @@
     tools:context=".eonet.ui.EonetFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eonet_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/fragment_eonet_emptylist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/this_list_is_empty"
+        android:visibility="gone"/>
 
 </FrameLayout>
