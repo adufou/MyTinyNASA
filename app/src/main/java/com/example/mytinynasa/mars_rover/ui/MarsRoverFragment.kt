@@ -7,15 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.mytinynasa.R
-import com.example.mytinynasa.mars_rover.viewmodel.MarsRoverViewModel
+import com.example.mytinynasa.mars_rover.MarsRoverActivity
 
-class MarsRover : Fragment() {
+class MarsRoverFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MarsRover()
+        fun newInstance() = MarsRoverFragment()
     }
 
-    private lateinit var viewModel: MarsRoverViewModel
+    private lateinit var activity: MarsRoverActivity
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +26,7 @@ class MarsRover : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MarsRoverViewModel::class.java)
+        activity = ViewModelProvider(this).get(MarsRoverActivity::class.java)
         // TODO: Use the ViewModel
     }
 
