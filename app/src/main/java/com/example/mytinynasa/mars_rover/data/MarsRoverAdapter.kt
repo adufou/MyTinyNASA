@@ -3,11 +3,9 @@ package com.example.mytinynasa.mars_rover.data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mytinynasa.R
-import com.example.mytinynasa.mars_rover.MarsRoverActivity
 
 class MarsRoverAdapter(val data : List<MarsRoverModel>, val onItemClickListener : View.OnClickListener) : RecyclerView.Adapter<MarsRoverAdapter.MarsRoverHolder>() {
     class MarsRoverHolder (itemWiew: View) : RecyclerView.ViewHolder(itemWiew) {
