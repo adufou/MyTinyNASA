@@ -13,7 +13,7 @@ class EonetAdapter(private val data : List<Event>) : RecyclerView.Adapter<EonetA
     class EonetHolder(rowView : View) : ViewHolder(rowView) {
         val titleTextView : TextView = rowView.findViewById(R.id.eonet_item_title)
         val descriptionTextView : TextView = rowView.findViewById(R.id.eonet_item_description)
-        val linkTextView : TextView = rowView.findViewById(R.id.eonet_item_link)
+        //val linkTextView : TextView = rowView.findViewById(R.id.eonet_item_link)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EonetHolder {
@@ -28,7 +28,7 @@ class EonetAdapter(private val data : List<Event>) : RecyclerView.Adapter<EonetA
     override fun onBindViewHolder(holder: EonetHolder, position: Int) {
         holder.titleTextView.text = data[position].title
         holder.descriptionTextView.text = data[position].description
-        holder.linkTextView.text = data[position].link
+        //holder.linkTextView.text = data[position].link
 
         holder.itemView.tag = position
     }

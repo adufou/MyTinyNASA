@@ -6,34 +6,98 @@
     android:layout_height="wrap_content">
 
     <TextView
+        android:id="@+id/eonet_item_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/eonet_item_description_title"
+        app:layout_constraintStart_toEndOf="@+id/eonet_item_description_title"
+        tools:text="This is a description" />
+
+    <TextView
         android:id="@+id/eonet_item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Title" />
 
     <TextView
-        android:id="@+id/eonet_item_description"
+        android:id="@+id/eonet_item_description_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/eonet_item_description_title"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Description" />
+        app:layout_constraintTop_toBottomOf="@+id/eonet_item_title" />
 
     <TextView
-        android:id="@+id/eonet_item_link"
+        android:id="@+id/eonet_item_type_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/eonet_item_type_title"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eonet_item_description" />
+
+    <TextView
+        android:id="@+id/eonet_item_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBaseline_toBaselineOf="@id/eonet_item_type_title"
+        app:layout_constraintStart_toStartOf="@+id/eonet_item_description"
+        tools:layout_editor_absoluteY="67dp" />
+
+    <TextView
+        android:id="@+id/eonet_item_date_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/eonet_item_date_title"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eonet_item_type" />
+
+    <TextView
+        android:id="@+id/eonet_item_magnitude_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:text="@string/eonet_item_magnitude_title"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eonet_item_description"
-        tools:text="Link" />
+        app:layout_constraintTop_toBottomOf="@+id/eonet_item_date" />
+
+    <TextView
+        android:id="@+id/eonet_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBaseline_toBaselineOf="@id/eonet_item_date_title"
+        app:layout_constraintStart_toStartOf="@+id/eonet_item_type"
+        tools:layout_editor_absoluteY="98dp" />
+
+    <TextView
+        android:id="@+id/eonet_item_magnitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBaseline_toBaselineOf="@id/eonet_item_magnitude_title"
+        app:layout_constraintStart_toStartOf="@+id/eonet_item_date"
+        tools:layout_editor_absoluteY="125dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
