@@ -55,14 +55,22 @@ class EonetFragment : Fragment() {
 
         var data = arrayListOf<Event>();
 
+        val eonetRecyclerView : RecyclerView = requireView().findViewById(R.id.eonet_recycler)
+        eonetRecyclerView.layoutManager = LinearLayoutManager(context)
+        eonetRecyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
+
+        // RETROFIT
         val retrofit = ApiClient.getApiClient("https://eonet.sci.gsfc.nasa.gov/api/v3/")
         val service = retrofit.create(ApiInterface::class.java)
 
         val callback : Callback<EonetResult> = object : Callback<EonetResult> {
             override fun onResponse(call: Call<EonetResult>, response: Response<EonetResult>) {
                 if (response.isSuccessful) {
-                    response.body()?.let { data ->
-                        Log.d("MyTinyNasa", "EONET API Success : " + data.toString())
+                    response.body()?.let { body ->
+                        Log.d("MyTinyNasa", "EONET API Success : " + body.toString())
+
+                        data = body.events as ArrayList<Event>
+                        eonetRecyclerView.adapter = EonetAdapter(data)
                     }
                 }
                 else {
@@ -75,21 +83,15 @@ class EonetFragment : Fragment() {
             }
 
         }
-
         service.getEonetEvents(null, null, null, null, null, null, null, null, null, null, null).enqueue(callback)
 
+        //if (data != null)
 
-        val eonetRecyclerView : RecyclerView = requireView().findViewById(R.id.eonet_recycler)
-        eonetRecyclerView.layoutManager = LinearLayoutManager(context)
-        eonetRecyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
-
-        if (data != null)
-            eonetRecyclerView.adapter = EonetAdapter(data)
-        else {
+       /* else {
             eonetRecyclerView.visibility = View.GONE
             val eonetEmptyTextView : TextView = requireView().findViewById(R.id.fragment_eonet_emptylist)
             eonetEmptyTextView.visibility = View.VISIBLE
-        }
+        }*/
 
     }
 
