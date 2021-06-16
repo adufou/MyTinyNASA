@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mytinynasa.R
-import com.example.mytinynasa.mars_rover.data.MarsRoverAdapter
 import com.example.mytinynasa.mars_rover.data.MarsRoverResult
 import com.example.mytinynasa.network.ApiClient
 import com.example.mytinynasa.network.ApiInterface
