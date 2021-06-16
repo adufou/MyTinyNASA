@@ -1,6 +1,7 @@
 package com.example.mytinynasa.eonet.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,13 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mytinynasa.R
+import com.example.mytinynasa.eonet.data.EonetResult
 import com.example.mytinynasa.eonet.data.Event
+import com.example.mytinynasa.network.ApiClient
+import com.example.mytinynasa.network.ApiInterface
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,22 +53,34 @@ class EonetFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val data : List<Event> = mutableListOf(
-            Event("EONET_5360", "Tropical Storm Blanca", null, "https://eonet.sci.gsfc.nasa.gov/api/v3/events/EONET_5360", "2021-06-09T00:00:00Z", null, null, null),
-            Event("EONET_5356", "Tropical Storm Choi-wan", null, "https://eonet.sci.gsfc.nasa.gov/api/v3/events/EONET_5356", "2021-06-10T00:00:00Z", null, null, null),
-            Event("EONET_5360", "Tropical Storm Blanca", null, "https://eonet.sci.gsfc.nasa.gov/api/v3/events/EONET_5360", "2021-06-09T00:00:00Z", null, null, null),
-            Event("EONET_5356", "Tropical Storm Choi-wan", null, "https://eonet.sci.gsfc.nasa.gov/api/v3/events/EONET_5356", "2021-06-10T00:00:00Z", null, null, null),
-            Event("EONET_5360", "Tropical Storm Blanca", null, "https://eonet.sci.gsfc.nasa.gov/api/v3/events/EONET_5360", "2021-06-09T00:00:00Z", null, null, null),
-            Event("EONET_5356", "Tropical Storm Choi-wan", null, "https://eonet.sci.gsfc.nasa.gov/api/v3/events/EONET_5356", "2021-06-10T00:00:00Z", null, null, null),
-            Event("EONET_5360", "Tropical Storm Blanca", null, "https://eonet.sci.gsfc.nasa.gov/api/v3/events/EONET_5360", "2021-06-09T00:00:00Z", null, null, null),
-            Event("EONET_5356", "Tropical Storm Choi-wan", null, "https://eonet.sci.gsfc.nasa.gov/api/v3/events/EONET_5356", "2021-06-10T00:00:00Z", null, null, null),
-            Event("EONET_5360", "Tropical Storm Blanca", null, "https://eonet.sci.gsfc.nasa.gov/api/v3/events/EONET_5360", "2021-06-09T00:00:00Z", null, null, null),
-            Event("EONET_5356", "Tropical Storm Choi-wan", null, "https://eonet.sci.gsfc.nasa.gov/api/v3/events/EONET_5356", "2021-06-10T00:00:00Z", null, null, null),
-        )
+        var data = arrayListOf<Event>();
+
+        val retrofit = ApiClient.getApiClient("https://eonet.sci.gsfc.nasa.gov/api/v3/")
+        val service = retrofit.create(ApiInterface::class.java)
+
+        val callback : Callback<EonetResult> = object : Callback<EonetResult> {
+            override fun onResponse(call: Call<EonetResult>, response: Response<EonetResult>) {
+                if (response.isSuccessful) {
+                    response.body()?.let { data ->
+                        Log.d("MyTinyNasa", "EONET API Success : " + data.toString())
+                    }
+                }
+                else {
+                    Log.d("MyTinyNasa", "EONET API Error : " + response.errorBody().toString())
+                }
+            }
+
+            override fun onFailure(call: Call<EonetResult>, t: Throwable) {
+                Log.d("MyTinyNasa", "EONET API Error : " + t.message)
+            }
+
+        }
+
+        service.getEonetEvents(null, null, null, null, null, null, null, null, null, null, null).enqueue(callback)
+
 
         val eonetRecyclerView : RecyclerView = requireView().findViewById(R.id.eonet_recycler)
         eonetRecyclerView.layoutManager = LinearLayoutManager(context)
-        eonetRecyclerView.setHasFixedSize(true)
         eonetRecyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
 
         if (data != null)

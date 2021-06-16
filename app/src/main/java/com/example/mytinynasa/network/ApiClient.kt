@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiClient {
     companion object {
 
-        public val apiKey = "MwyRNpzVidCbG6RmQ1zqiqVriYSdJThatCRIMQi6"
+        val apiKey = "MwyRNpzVidCbG6RmQ1zqiqVriYSdJThatCRIMQi6"
 
         private var retrofit:Retrofit?=null
 
