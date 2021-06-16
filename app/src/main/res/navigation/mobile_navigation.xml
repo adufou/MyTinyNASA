@@ -13,7 +13,7 @@
     <fragment
         android:id="@+id/marsRoverFragment"
         android:name="com.example.mytinynasa.mars_rover.ui.MarsRoverFragment"
-        android:label="fragment_mars_rover"
+        android:label="@string/title_mars_rover"
         tools:layout="@layout/fragment_mars_rover" />
     <fragment
         android:id="@+id/eonetFragment"
