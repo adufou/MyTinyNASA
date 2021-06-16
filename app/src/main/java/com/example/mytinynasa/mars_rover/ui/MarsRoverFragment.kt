@@ -1,6 +1,5 @@
 package com.example.mytinynasa.mars_rover.ui
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -22,13 +21,19 @@ import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * A simple [Fragment] subclass.
+ * Use the [MarsRoverFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
 class MarsRoverFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.mars_rover_item_list, container, false)
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_mars_rover, container, false)
     }
 
     private fun getMarsPhotos(recyclerView: RecyclerView, onItemClickListener : View.OnClickListener, roverType: String?, cameraType: String?, apiKey: String) {

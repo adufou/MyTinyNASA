@@ -11,4 +11,9 @@
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_mars_rover"/>
 
+    <item
+        android:id="@+id/eonetFragment"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_eonet" />
+
 </menu>

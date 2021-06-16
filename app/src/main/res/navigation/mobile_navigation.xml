@@ -10,10 +10,15 @@
         android:name="com.example.mytinynasa.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
-
     <fragment
         android:id="@+id/marsRoverFragment"
         android:name="com.example.mytinynasa.mars_rover.ui.MarsRoverFragment"
         android:label="fragment_mars_rover"
         tools:layout="@layout/fragment_mars_rover" />
+    <fragment
+        android:id="@+id/eonetFragment"
+        android:name="com.example.mytinynasa.eonet.ui.EonetFragment"
+        android:label="@string/title_eonet"
+        tools:layout="@layout/eonet_fragment" />
+
 </navigation>

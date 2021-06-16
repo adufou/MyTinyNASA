@@ -1,14 +1,21 @@
 <resources>
     <string name="app_name">My Tiny NASA</string>
     <string name="app_infos">Version 1.0 - EPITA - MTI 2022</string>
+
     <string name="title_home">Home</string>
     <string name="title_mars_rover">Mars Photos</string>
+    <string name="title_eonet">EONET</string>
 
     <string name="author_antoine">antoine.du-fou</string>
     <string name="author_louis">louis.santucci</string>
     <string name="author_leo">leo.tavernier</string>
     <string name="author_thomas">thomas.tourrette</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    
+    <string name="eonet_item_description_title">Description :</string>
+    <string name="eonet_item_type_title">Type :</string>
+    <string name="eonet_item_date_title">Date :</string>
+    <string name="eonet_item_magnitude_title">Magnitude :</string>
+
+    <string name="this_list_is_empty">This list is empty</string>
 
 </resources>
