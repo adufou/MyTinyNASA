@@ -89,7 +89,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logo_nasa"
         android:layout_width="162dp"
         android:layout_height="213dp"
         android:src="@drawable/nasa_logo"
