@@ -66,7 +66,7 @@ class EonetFragment : Fragment() {
             }
 
         }
-        service.getEonetEvents(null, null, null, null, null, null, null, null, null, null, null).enqueue(callback)
+        service.getEonetEvents(null, null, null, 25, null, null, null, null, null, null, null).enqueue(callback)
 
         //if (data != null)
 

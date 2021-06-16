@@ -33,10 +33,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/eonet_item_description_title"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eonet_item_title" />
+        app:layout_constraintTop_toBottomOf="@+id/eonet_item_magnitude_title" />
 
     <TextView
         android:id="@+id/eonet_item_type_title"
@@ -47,16 +49,16 @@
         android:text="@string/eonet_item_type_title"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eonet_item_description" />
+        app:layout_constraintTop_toBottomOf="@+id/eonet_item_title" />
 
     <TextView
         android:id="@+id/eonet_item_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="TextView"
         app:layout_constraintBaseline_toBaselineOf="@id/eonet_item_type_title"
-        app:layout_constraintStart_toStartOf="@+id/eonet_item_description"
-        tools:layout_editor_absoluteY="67dp" />
+        app:layout_constraintStart_toEndOf="@+id/eonet_item_type_title" />
 
     <TextView
         android:id="@+id/eonet_item_date_title"
@@ -75,10 +77,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/eonet_item_magnitude_title"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eonet_item_date" />
 
@@ -86,18 +86,18 @@
         android:id="@+id/eonet_item_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="TextView"
         app:layout_constraintBaseline_toBaselineOf="@id/eonet_item_date_title"
-        app:layout_constraintStart_toStartOf="@+id/eonet_item_type"
-        tools:layout_editor_absoluteY="98dp" />
+        app:layout_constraintStart_toEndOf="@+id/eonet_item_date_title" />
 
     <TextView
         android:id="@+id/eonet_item_magnitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="TextView"
         app:layout_constraintBaseline_toBaselineOf="@id/eonet_item_magnitude_title"
-        app:layout_constraintStart_toStartOf="@+id/eonet_item_date"
-        tools:layout_editor_absoluteY="125dp" />
+        app:layout_constraintStart_toEndOf="@+id/eonet_item_magnitude_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

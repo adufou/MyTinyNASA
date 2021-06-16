@@ -10,7 +10,6 @@ android {
     defaultConfig {
         applicationId "com.example.mytinynasa"
         minSdkVersion 22
-        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
