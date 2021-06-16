@@ -13,7 +13,7 @@
         android:id="@+id/mars_rover_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Filter"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="125dp" />
+        app:layout_constraintBottom_toTopOf="@+id/mars_rover_recycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

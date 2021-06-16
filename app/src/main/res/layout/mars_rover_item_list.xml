@@ -4,35 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="500dp"
     tools:context=".mars_rover.MarsRoverActivity">
 
     <TextView
-        android:id="@+id/item_cameraInfo"
-        android:layout_width="60dp"
-        android:layout_height="34dp"
+        android:id="@+id/mars_item_cameraInfo"
+        android:layout_width="100dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="60dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.903"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="250dp" />
+        app:layout_constraintTop_toBottomOf="@+id/mars_item_image" />
 
     <TextView
-        android:id="@+id/item_date"
-        android:layout_width="60dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="32dp"
+        android:id="@+id/mars_item_date"
+        android:layout_width="100dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="60dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/item_rover"
-        tools:layout_editor_absoluteY="250dp" />
+        app:layout_constraintTop_toBottomOf="@+id/mars_item_image" />
 
     <TextView
-        android:id="@+id/item_rover"
-        android:layout_width="60dp"
-        android:layout_height="34dp"
+        android:id="@+id/mars_item_rover"
+        android:layout_width="150dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="50dp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/item_cameraInfo"
-        tools:layout_editor_absoluteY="250dp" />
+        app:layout_constraintTop_toBottomOf="@+id/mars_item_image" />
+
+    <ImageView
+        android:id="@+id/mars_item_image"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/mars_rover_image_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
