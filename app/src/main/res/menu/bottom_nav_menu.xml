@@ -18,7 +18,7 @@
 
     <item
         android:id="@+id/eonetFragment"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/ic_eonet_black_24dp"
         android:title="@string/title_eonet" />
 
 </menu>
