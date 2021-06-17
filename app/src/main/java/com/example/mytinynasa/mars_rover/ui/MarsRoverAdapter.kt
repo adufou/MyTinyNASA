@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.mytinynasa.R
 import com.example.mytinynasa.mars_rover.data.MarsRoverModel
 
-class MarsRoverAdapter(val data : List<MarsRoverModel>, val onItemClickListener : View.OnClickListener) : RecyclerView.Adapter<MarsRoverAdapter.MarsRoverHolder>() {
+class MarsRoverAdapter(val data : List<MarsRoverModel>) : RecyclerView.Adapter<MarsRoverAdapter.MarsRoverHolder>() {
     class MarsRoverHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(model : MarsRoverModel) {
@@ -29,7 +29,6 @@ class MarsRoverAdapter(val data : List<MarsRoverModel>, val onItemClickListener 
 
         val viewHolder : MarsRoverHolder
         val rowView : View = LayoutInflater.from(parent.context).inflate(R.layout.mars_rover_item_list, parent, false)
-        rowView.setOnClickListener(onItemClickListener)
         viewHolder = MarsRoverHolder(rowView)
 
         return viewHolder

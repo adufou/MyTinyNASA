@@ -12,13 +12,11 @@ class ApiClient {
         private var retrofit:Retrofit?=null
 
         fun getApiClient(baseUrl: String) : Retrofit {
-            if (retrofit == null) {
-                var converter = GsonConverterFactory.create(GsonBuilder().create())
-                retrofit = Retrofit.Builder()
-                    .baseUrl(baseUrl)
-                    .addConverterFactory(converter)
-                    .build()
-            }
+            var converter = GsonConverterFactory.create(GsonBuilder().create())
+            retrofit = Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(converter)
+                .build()
 
             return retrofit!!
         }
