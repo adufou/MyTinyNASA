@@ -1,5 +1,6 @@
 package com.example.mytinynasa.network
 
+import com.example.mytinynasa.apod.data.ApodResult
 import com.example.mytinynasa.eonet.data.EonetResult
 import com.example.mytinynasa.mars_rover.data.MarsRoverModel
 import com.example.mytinynasa.mars_rover.data.MarsRoverResult
@@ -26,4 +27,11 @@ interface ApiInterface {
         @Query(value = "magMax") magMax : Float?,
         @Query(value = "bbox") bbox : String?
     ) : Call<EonetResult>
+
+    @GET("planetary/apod")
+    fun getApodPhotos(
+        @Query(value = "start_date") start_date : String,
+        @Query(value = "end_date") end_date : String,
+        @Query(value = "api_key") apiKey : String
+    ) : Call<ApodResult>
 }
