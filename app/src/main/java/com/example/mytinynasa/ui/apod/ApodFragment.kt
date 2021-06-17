@@ -29,4 +29,8 @@ class ApodFragment : Fragment() {
         // TODO: Use the ViewModel
     }
 
+    private fun getAPODPhotos(apiKey: String) {
+
+    }
+
 }
