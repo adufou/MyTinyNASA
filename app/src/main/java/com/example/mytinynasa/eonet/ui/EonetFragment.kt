@@ -48,10 +48,6 @@ class EonetFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var count = settings!!.getInt("Count", 0)
-        settings_editor!!.putInt("Count", count + 1)
-        settings_editor!!.apply()
-
         var data = arrayListOf<Event>();
 
         val eonetRecyclerView : RecyclerView = requireView().findViewById(R.id.eonet_recycler)
@@ -61,8 +57,6 @@ class EonetFragment : Fragment() {
         // RETROFIT
         val retrofit = ApiClient.getApiClient("https://eonet.sci.gsfc.nasa.gov/api/v3/")
         val service = retrofit.create(ApiInterface::class.java)
-
-        Toast.makeText(context, "Count: ${settings!!.getInt("Count", 0)}", Toast.LENGTH_SHORT).show()
 
         val callback : Callback<EonetResult> = object : Callback<EonetResult> {
             override fun onResponse(call: Call<EonetResult>, response: Response<EonetResult>) {
