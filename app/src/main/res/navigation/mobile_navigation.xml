@@ -14,7 +14,7 @@
         android:id="@+id/marsRoverFragment"
         android:name="com.example.mytinynasa.mars_rover.ui.MarsRoverFragment"
         android:label="@string/title_mars_rover"
-        tools:layout="@layout/fragment_mars_rover" />
+        tools:layout="@layout/fragment_mars_rover_selection" />
     <fragment
         android:id="@+id/eonetFragment"
         android:name="com.example.mytinynasa.eonet.ui.EonetFragment"

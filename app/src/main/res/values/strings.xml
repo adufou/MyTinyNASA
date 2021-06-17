@@ -10,12 +10,31 @@
     <string name="author_louis">louis.santucci</string>
     <string name="author_leo">leo.tavernier</string>
     <string name="author_thomas">thomas.tourrette</string>
-    
+
     <string name="eonet_item_description_title">Description :</string>
     <string name="eonet_item_type_title">Type :</string>
     <string name="eonet_item_date_title">Date :</string>
     <string name="eonet_item_magnitude_title">Magnitude :</string>
 
     <string name="this_list_is_empty">This list is empty</string>
+
     <string name="mars_rover_image_description">Contains the image of the object thanks to the API call</string>
+    <string name="mars_rover_choice_description">Please select a rover type.</string>
+    <string name="mars_rover_camera_choice_description">Please select a camera type.</string>
+    <string name="mars_rover_type_curiosity">Curiosity</string>
+    <string name="mars_rover_type_opportunity">Opportunity</string>
+    <string name="mars_rover_type_spirit">Spirit</string>
+
+    <string name="mars_rover_camera_FHAZ">FHAZ</string>
+    <string name="mars_rover_camera_RHAZ">RHAZ</string>
+    <string name="mars_rover_camera_MAST">MAST</string>
+    <string name="mars_rover_camera_CHEMCAM">CHEMCAM</string>
+    <string name="mars_rover_camera_MAHLI">MAHLI</string>
+    <string name="mars_rover_camera_MARDI">MARDI</string>
+    <string name="mars_rover_camera_NAVCAM">NAVCAM</string>
+    <string name="mars_rover_camera_PANCAM">PANCAM</string>
+    <string name="mars_rover_camera_MINITES">MINITES</string>
+    <string name="mars_rover_camera_ALL">All</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
