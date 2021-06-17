@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -50,6 +52,12 @@ class EonetFragment : Fragment() {
 
         var data = arrayListOf<Event>();
 
+        // UI
+        val progress : ProgressBar = requireView().findViewById(R.id.eonet_progress_bar)
+        progress.isVisible = true
+        val empty : TextView = requireView().findViewById(R.id.fragment_eonet_emptylist)
+        empty.isVisible = false
+
         val eonetRecyclerView : RecyclerView = requireView().findViewById(R.id.eonet_recycler)
         eonetRecyclerView.layoutManager = LinearLayoutManager(context)
         eonetRecyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
@@ -63,8 +71,14 @@ class EonetFragment : Fragment() {
                 if (response.isSuccessful) {
                     response.body()?.let { body ->
                         Log.d("MyTinyNasa", "EONET API Success : " + body.toString())
-
                         data = body.events as ArrayList<Event>
+
+                        // Change Eonet UI
+
+                        progress.isVisible = false
+                        empty.isVisible = data.isEmpty()
+
+                        // Call Adapter to update data
                         eonetRecyclerView.adapter = EonetAdapter(data)
                     }
                 }
