@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/navigation_apod"
-        android:name="com.example.mytinynasa.ui.apod.ApodFragment"
+        android:name="com.example.mytinynasa.apod.ui.ApodFragment"
         android:label="APOD"
         tools:layout="@layout/apod_fragment" />
     <fragment

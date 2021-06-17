@@ -11,7 +11,7 @@
     <string name="author_louis">louis.santucci</string>
     <string name="author_leo">leo.tavernier</string>
     <string name="author_thomas">thomas.tourrette</string>
-    
+
     <string name="eonet_item_description_title">Description :</string>
     <string name="eonet_item_type_title">Type :</string>
     <string name="eonet_item_date_title">Date :</string>
@@ -19,4 +19,6 @@
 
     <string name="this_list_is_empty">This list is empty</string>
     <string name="mars_rover_image_description">Contains the image of the object thanks to the API call</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
