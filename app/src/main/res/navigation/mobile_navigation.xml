@@ -11,11 +11,17 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/marsRoverFragment"
+        android:id="@+id/marsRoverSelectionFragment"
         android:name="com.example.mytinynasa.mars_rover.ui.MarsRoverFragment"
         android:label="@string/title_mars_rover"
-        tools:layout="@layout/fragment_mars_rover" />
-
+        tools:layout="@layout/fragment_mars_rover_selection" >
+        <action
+            android:id="@+id/action_marsRoverSelectionFragment_to_marsRoverCuriosityCameraSelectionFragment"
+            app:destination="@id/marsRoverCuriosityCameraSelectionFragment" />
+        <action
+            android:id="@+id/action_marsRoverSelectionFragment_to_marsRoverOpportunitySpiritCameraSelectionFragment"
+            app:destination="@id/marsRoverOpportunitySpiritCameraSelectionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/eonetFragment"
         android:name="com.example.mytinynasa.eonet.ui.EonetFragment"
@@ -26,5 +32,23 @@
         android:name="com.example.mytinynasa.apod.ui.ApodFragment"
         android:label="fragment_apod"
         tools:layout="@layout/fragment_apod" />
+
+    <fragment
+        android:id="@+id/marsRoverCuriosityCameraSelectionFragment"
+        android:name="com.example.mytinynasa.mars_rover.ui.MarsRoverCameraSelection"
+        android:label="@string/title_mars_rover"
+        tools:layout="@layout/fragment_mars_rover_camera_curiosity" />
+
+    <fragment
+        android:id="@+id/marsRoverOpportunitySpiritCameraSelectionFragment"
+        android:name="com.example.mytinynasa.mars_rover.ui.MarsRoverCameraSelection"
+        android:label="@string/title_mars_rover"
+        tools:layout="@layout/fragment_mars_rover_camera_opportunity_spirit" />
+
+    <fragment
+        android:id="@+id/marsRoverFragment"
+        android:name="com.example.mytinynasa.mars_rover.ui.MarsRoverFragment"
+        android:label="@string/title_mars_rover"
+        tools:layout="@layout/fragment_mars_rover" />
 
 </navigation>
