@@ -59,7 +59,9 @@ class ApodFragment : Fragment() {
 
                 if (response.isSuccessful) {
                     response.body()?.let { data ->
-                        Toast.makeText(context, "SUCCESS, found " + data.size, Toast.LENGTH_SHORT).show()
+                        context?.let { context ->
+                            Toast.makeText(context, "SUCCESS, found " + data.size, Toast.LENGTH_SHORT).show()
+                        }
                     }
                     results = response.body()!!
                     recyclerView.adapter = ApodAdapter(results)
