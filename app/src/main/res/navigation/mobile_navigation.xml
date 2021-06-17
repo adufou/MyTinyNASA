@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/apodFragment"
         android:name="com.example.mytinynasa.apod.ui.ApodFragment"
-        android:label="fragment_apod"
+        android:label="@string/title_apod_complet"
         tools:layout="@layout/fragment_apod" />
 
     <fragment
