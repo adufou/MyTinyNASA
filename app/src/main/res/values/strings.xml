@@ -11,6 +11,7 @@
     <string name="author_leo">leo.tavernier</string>
     <string name="author_thomas">thomas.tourrette</string>
 
+
     <string name="eonet_button_filter">FILTER</string>
 
     <string name="eonet_item_description_title">Description :</string>
@@ -19,21 +20,25 @@
     <string name="eonet_item_magnitude_title">Magnitude :</string>
 
     <string name="this_list_is_empty">This list is empty</string>
+
     <string name="mars_rover_image_description">Contains the image of the object thanks to the API call</string>
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="mars_rover_choice_description">Please select a rover type.</string>
+    <string name="mars_rover_camera_choice_description">Please select a camera type.</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name="mars_rover_type_curiosity">Curiosity</string>
+    <string name="mars_rover_type_opportunity">Opportunity</string>
+    <string name="mars_rover_type_spirit">Spirit</string>
 
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="mars_rover_camera_FHAZ">FHAZ</string>
+    <string name="mars_rover_camera_RHAZ">RHAZ</string>
+    <string name="mars_rover_camera_MAST">MAST</string>
+    <string name="mars_rover_camera_CHEMCAM">CHEMCAM</string>
+    <string name="mars_rover_camera_MAHLI">MAHLI</string>
+    <string name="mars_rover_camera_MARDI">MARDI</string>
+    <string name="mars_rover_camera_NAVCAM">NAVCAM</string>
+    <string name="mars_rover_camera_PANCAM">PANCAM</string>
+    <string name="mars_rover_camera_MINITES">MINITES</string>
+    <string name="mars_rover_camera_ALL">All</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
