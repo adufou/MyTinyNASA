@@ -92,7 +92,7 @@ class EonetFragment : Fragment() {
         filer_button.setOnClickListener {
             val filter_fragment = EonetFilterFragment()
             val transaction : FragmentTransaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.nav_host_fragment_activity_main, filter_fragment)
+            transaction.replace(R.id.eonet_fragment, filter_fragment)
             transaction.commit()
         }
 
