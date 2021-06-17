@@ -19,8 +19,12 @@
     <string name="eonet_item_date_title">Date :</string>
     <string name="eonet_item_magnitude_title">Magnitude :</string>
 
-    <string name="eonet_filter_limit_title">Results: </string>
+    <string name="eonet_filter_limit_title">Results</string>
     <string name="eonet_filter_limit_hint">25</string>
+
+    <string name="eonet_filter_days_title">In the last</string>
+    <string name="eonet_filter_days_title_end">days</string>
+    <string name="eonet_filter_days_hint">7</string>
 
     <string name="eonet_filter_reset">RESET</string>
     <string name="eonet_filter_apply">APPLY</string>

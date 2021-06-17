@@ -53,7 +53,18 @@ class EonetFilterFragment : Fragment() {
                     limit = Integer.parseInt(text)
             }
 
+            // GET DAYS
+            val days_in : EditText = requireView().findViewById(R.id.eonet_filter_days)
+            var days = 7;
+
+            days_in.text?.toString()?.let { text ->
+                if (text != "")
+                    days = Integer.parseInt(text)
+            }
+
+            // COMMIT SETTINGS
             settings_editor!!.putInt("eonet_limit", limit)
+            settings_editor!!.putInt("eonet_days", days)
             settings_editor!!.commit()
 
             // TRANSACTION

@@ -86,9 +86,12 @@ class EonetFragment : Fragment() {
         }
 
         var limit : Int = 25
-        settings?.getInt("eonet_limit", 25)?.let { it -> limit = it }
+        var days : Int = 7
 
-        service.getEonetEvents(null, null, null, limit, null, null, null, null, null, null, null).enqueue(callback)
+        settings?.getInt("eonet_limit", 25)?.let { it -> limit = it }
+        settings?.getInt("eonet_days", 7)?.let { it -> days = it }
+
+        service.getEonetEvents(null, null, null, limit, days, null, null, null, null, null, null).enqueue(callback)
 
         val filer_button : Button = requireView().findViewById(R.id.eonet_filter_button)
         filer_button.setOnClickListener {

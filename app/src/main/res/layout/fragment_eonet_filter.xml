@@ -23,6 +23,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/eonet_filter_days_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/eonet_filter_days_title"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eonet_filter_limit_title" />
+
+        <TextView
+            android:id="@+id/eonet_filter_days_title_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:text="@string/eonet_filter_days_title_end"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/eonet_filter_days_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="101dp" />
+
         <EditText
             android:id="@+id/eonet_filter_limit"
             android:layout_width="wrap_content"
@@ -35,6 +57,20 @@
             android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@id/eonet_filter_limit_title"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/eonet_filter_days"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="@string/eonet_filter_days_hint"
+            android:inputType="number"
+            android:textAlignment="textEnd"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/eonet_filter_days_title"
+            app:layout_constraintEnd_toStartOf="@+id/eonet_filter_days_title_end"
+            app:layout_constraintStart_toStartOf="@+id/eonet_filter_limit" />
 
         <Button
             android:id="@+id/eonet_filter_reset"
