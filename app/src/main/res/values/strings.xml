@@ -19,6 +19,12 @@
     <string name="eonet_item_date_title">Date :</string>
     <string name="eonet_item_magnitude_title">Magnitude :</string>
 
+    <string name="eonet_filter_limit_title">Results: </string>
+    <string name="eonet_filter_limit_hint">25</string>
+
+    <string name="eonet_filter_reset">RESET</string>
+    <string name="eonet_filter_apply">APPLY</string>
+
     <string name="this_list_is_empty">This list is empty</string>
 
     <string name="mars_rover_image_description">Contains the image of the object thanks to the API call</string>
