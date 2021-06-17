@@ -83,9 +83,9 @@ class ApodFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val apodRecyclerView : RecyclerView = requireView().findViewById(R.id.apod_recycler)!!
+        val apodRecyclerView : RecyclerView = requireView().findViewById(R.id.apod_recycler)
         //val apodRecyclerView : RecyclerView = (RecyclerView(requireContext())).findViewById(R.id.apod_recycler)
-        val apodRecyclerView : RecyclerView = View.f
+        //val apodRecyclerView : RecyclerView = View.f
         apodRecyclerView.layoutManager = LinearLayoutManager(context)
         apodRecyclerView.setHasFixedSize(true)
         apodRecyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))

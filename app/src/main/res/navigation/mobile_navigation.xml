@@ -17,14 +17,14 @@
         tools:layout="@layout/fragment_mars_rover" />
 
     <fragment
-        android:id="@+id/navigation_apod"
-        android:name="com.example.mytinynasa.apod.ui.ApodFragment"
-        android:label="APOD"
-        tools:layout="@layout/apod_fragment" />
-    <fragment
         android:id="@+id/eonetFragment"
         android:name="com.example.mytinynasa.eonet.ui.EonetFragment"
         android:label="@string/title_eonet"
         tools:layout="@layout/eonet_fragment" />
+    <fragment
+        android:id="@+id/apodFragment"
+        android:name="com.example.mytinynasa.apod.ui.ApodFragment"
+        android:label="fragment_apod"
+        tools:layout="@layout/fragment_apod" />
 
 </navigation>
