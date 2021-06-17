@@ -1,12 +1,16 @@
 package com.example.mytinynasa.eonet.ui
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.FrameLayout
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.FragmentTransaction
 import com.example.mytinynasa.R
 import com.google.android.material.button.MaterialButton
@@ -35,6 +39,12 @@ class EonetFilterFragment : Fragment() {
 
         val apply : MaterialButton = requireView().findViewById(R.id.eonet_filter_apply)
         apply.setOnClickListener {
+            // CLOSE KEYBOARD
+            val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val filter_view : FrameLayout = requireView().findViewById(R.id.eonet_filter_fragment)
+            imm.hideSoftInputFromWindow(filter_view.windowToken, 0)
+
+            // GET LIMIT
             val limit_in : EditText = requireView().findViewById(R.id.eonet_filter_limit)
             var limit = 25;
 
@@ -46,6 +56,7 @@ class EonetFilterFragment : Fragment() {
             settings_editor!!.putInt("eonet_limit", limit)
             settings_editor!!.commit()
 
+            // TRANSACTION
             val eonetFragment = EonetFragment()
             val transaction : FragmentTransaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.eonet_filter_fragment, eonetFragment)
