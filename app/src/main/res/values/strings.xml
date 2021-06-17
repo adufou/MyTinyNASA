@@ -39,6 +39,6 @@
     <string name="mars_rover_camera_PANCAM">PANCAM</string>
     <string name="mars_rover_camera_MINITES">MINITES</string>
     <string name="mars_rover_camera_ALL">All</string>
-    
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
