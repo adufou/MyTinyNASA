@@ -35,7 +35,7 @@ class MarsRoverFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_mars_rover, container, false)
     }
 
-    private fun getMarsPhotos(recyclerView: RecyclerView, onItemClickListener : View.OnClickListener, roverType: String?, cameraType: String?, apiKey: String) {
+    private fun getMarsPhotos(recyclerView: RecyclerView, roverType: String?, cameraType: String?, apiKey: String) {
 
         val retrofit = ApiClient.getApiClient("https://api.nasa.gov/")
 
@@ -58,17 +58,35 @@ class MarsRoverFragment : Fragment() {
                         Toast.makeText(context, "SUCCESS, found " + data.photos.size, Toast.LENGTH_SHORT).show()
                     }
                     results = response.body()!!
-                    recyclerView.adapter = MarsRoverAdapter(results.photos, onItemClickListener)
+                    recyclerView.adapter = MarsRoverAdapter(results.photos)
                 } else {
                     Log.d("MyTinyNasa", "API Error : " + response.errorBody().toString())
                 }
             }
         }
+
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
         val previousDate = Date().time - (3600 * 24 * 1000)
         val newDate = simpleDateFormat.format(Date(previousDate))
 
         service.getMarsPhotos(roverType, cameraType, apiKey, newDate).enqueue(callback)
+
+        /*
+        var simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+        var previousDate = Date().time - (3600 * 24 * 1000)
+        var newDate = simpleDateFormat.format(Date(previousDate))
+        var result = service.getMarsPhotos(roverType, cameraType, apiKey, newDate)
+        var exec = result.execute()
+        while (exec.isSuccessful && exec.body()!!.photos.isEmpty(){
+            simpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE)
+            previousDate -= (3600 * 24 * 1000)
+            newDate = simpleDateFormat.format(Date(previousDate))
+            result = service.getMarsPhotos(roverType, cameraType, apiKey, newDate)
+            exec = result.execute()
+        }
+        result.enqueue(callback)
+         */
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -79,13 +97,6 @@ class MarsRoverFragment : Fragment() {
         marsRoverRecyclerView.setHasFixedSize(true)
         marsRoverRecyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
 
-        val onItemClickListener : View.OnClickListener = object : View.OnClickListener {
-            override fun onClick(clickedItemView: View?) {
-                val position : Int = clickedItemView!!.tag as Int
-                Toast.makeText(context, "Clicked at index $position", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        getMarsPhotos(marsRoverRecyclerView, onItemClickListener, "Curiosity", null, ApiClient.apiKey)
+        getMarsPhotos(marsRoverRecyclerView, "Curiosity", null, ApiClient.apiKey)
     }
 }
