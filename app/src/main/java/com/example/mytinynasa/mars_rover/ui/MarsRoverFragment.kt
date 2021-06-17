@@ -94,7 +94,6 @@ class MarsRoverFragment : Fragment() {
 
         val marsRoverRecyclerView : RecyclerView = requireView().findViewById(R.id.mars_rover_recycler)
         marsRoverRecyclerView.layoutManager = LinearLayoutManager(context)
-        marsRoverRecyclerView.setHasFixedSize(true)
         marsRoverRecyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
 
         getMarsPhotos(marsRoverRecyclerView, "Curiosity", null, ApiClient.apiKey)
