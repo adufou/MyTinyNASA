@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="500dp"
-    tools:context=".mars_rover.MarsRoverActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/mars_item_cameraInfo"
