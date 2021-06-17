@@ -1,8 +1,7 @@
 package com.example.mytinynasa.network
 
-import com.example.mytinynasa.apod.data.ApodResult
+import com.example.mytinynasa.apod.data.ApodModel
 import com.example.mytinynasa.eonet.data.EonetResult
-import com.example.mytinynasa.mars_rover.data.MarsRoverModel
 import com.example.mytinynasa.mars_rover.data.MarsRoverResult
 import retrofit2.Call
 import retrofit2.http.GET
@@ -33,5 +32,5 @@ interface ApiInterface {
         @Query(value = "start_date") start_date : String,
         @Query(value = "end_date") end_date : String,
         @Query(value = "api_key") apiKey : String
-    ) : Call<ApodResult>
+    ) : Call<List<ApodModel>>
 }

@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mytinynasa.R
-import com.example.mytinynasa.apod.data.ApodResult
+import com.example.mytinynasa.apod.data.ApodModel
 import com.example.mytinynasa.apod.ui.ApodAdapter
 import com.example.mytinynasa.network.ApiClient
 import com.example.mytinynasa.network.ApiInterface
@@ -39,31 +39,30 @@ class ApodFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_apod, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun getApodPhotos(recyclerView: RecyclerView, apiKey: String) {
 
         val retrofit = ApiClient.getApiClient("https://api.nasa.gov/")
 
         val service = retrofit.create(ApiInterface::class.java)
 
-        var results : ApodResult
+        var results : List<ApodModel>
 
-        val callback : Callback<ApodResult> = object : Callback<ApodResult> {
-            override fun onFailure(call: Call<ApodResult>, t: Throwable) {
+        val callback : Callback<List<ApodModel>> = object : Callback<List<ApodModel>> {
+            override fun onFailure(call: Call<List<ApodModel>>, t: Throwable) {
                 Log.d("MyTinyNasa", "API Error " + t.message)
             }
 
             override fun onResponse(
-                call: Call<ApodResult>,
-                response: Response<ApodResult>
+                call: Call<List<ApodModel>>,
+                response: Response<List<ApodModel>>
             ) {
 
                 if (response.isSuccessful) {
                     response.body()?.let { data ->
-                        Toast.makeText(context, "SUCCESS, found " + data.photos.size, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "SUCCESS, found " + data.size, Toast.LENGTH_SHORT).show()
                     }
                     results = response.body()!!
-                    recyclerView.adapter = ApodAdapter(results.photos)
+                    recyclerView.adapter = ApodAdapter(results)
                 } else {
                     Log.d("MyTinyNasa", "API Error : " + response.errorBody().toString())
                 }
@@ -71,7 +70,7 @@ class ApodFragment : Fragment() {
         }
 
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
-        val end_date = LocalDate.now().toString()
+        val end_date = simpleDateFormat.format(Date().time)
         val start_date_long = Date().time - (7 * 24 * 3600 * 1000)
         val start_date = simpleDateFormat.format(start_date_long)
 
@@ -79,7 +78,6 @@ class ApodFragment : Fragment() {
 
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
