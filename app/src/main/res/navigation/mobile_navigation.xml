@@ -10,21 +10,21 @@
         android:name="com.example.mytinynasa.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
-
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.mytinynasa.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/marsRoverFragment"
+        android:name="com.example.mytinynasa.mars_rover.ui.MarsRoverFragment"
+        android:label="@string/title_mars_rover"
+        tools:layout="@layout/fragment_mars_rover" />
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.mytinynasa.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_apod"
         android:name="com.example.mytinynasa.ui.apod.ApodFragment"
         android:label="APOD"
         tools:layout="@layout/apod_fragment" />
+    <fragment
+        android:id="@+id/eonetFragment"
+        android:name="com.example.mytinynasa.eonet.ui.EonetFragment"
+        android:label="@string/title_eonet"
+        tools:layout="@layout/eonet_fragment" />
+
 </navigation>
