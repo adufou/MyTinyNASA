@@ -40,4 +40,10 @@
         android:label="@string/title_mars_rover"
         tools:layout="@layout/fragment_mars_rover_camera_opportunity_spirit" />
 
+    <fragment
+        android:id="@+id/marsRoverFragment"
+        android:name="com.example.mytinynasa.mars_rover.ui.MarsRoverFragment"
+        android:label="@string/title_mars_rover"
+        tools:layout="@layout/fragment_mars_rover" />
+
 </navigation>
