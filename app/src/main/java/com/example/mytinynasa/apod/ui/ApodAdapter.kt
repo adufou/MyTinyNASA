@@ -18,10 +18,10 @@ class ApodAdapter(val data : List<ApodModel>) : RecyclerView.Adapter<ApodAdapter
             val titleTextView : TextView = itemView.findViewById(R.id.apod_title)
             val explanationTextView : TextView = itemView.findViewById(R.id.apod_explanation)
             val authorTextView : TextView = itemView.findViewById(R.id.apod_author)
-            Glide.with(itemView.context).load(model.img_src).centerCrop().into(imgSrcImageView)
+            Glide.with(itemView.context).load(model.url).centerCrop().into(imgSrcImageView)
             titleTextView.text = model.title
             explanationTextView.text = model.explanation
-            authorTextView.text = model.author
+            authorTextView.text = model.copyright
         }
     }
 
