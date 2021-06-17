@@ -69,14 +69,29 @@ class EonetAdapter(private val data : List<Event>) : RecyclerView.Adapter<EonetA
         val df_out = SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss", Locale.US)
 
         holder.dateTextView.text = null
-        data[position].geometry?.get(0)?.date?.let { date_str ->
-            df_in.parse(date_str)?.let { date ->
-                val date_displayed = df_out.format(date)
-                holder.dateTextView.text = date_displayed
+        holder.magnitudeTextView.text = null
+
+        data[position].geometry?.get(0)?.let { geometry ->
+            geometry.date?.let { date_str ->
+                df_in.parse(date_str)?.let { date ->
+                    val date_displayed = df_out.format(date)
+                    holder.dateTextView.text = date_displayed
+                }
             }
+
+            var magnitude_displayed : String = ""
+            geometry.magnitudeValue?.let { magVal ->
+                magnitude_displayed = magVal.toString()
+            }
+
+            geometry.magnitudeUnit?.let{ magUnit ->
+                magnitude_displayed = magnitude_displayed.plus(' ').plus(magUnit)
+            }
+
+            if (magnitude_displayed != "")
+                holder.magnitudeTextView.text = magnitude_displayed
         }
 
-        holder.magnitudeTextView.text = "WIP"
 
         holder.itemView.tag = position
     }
