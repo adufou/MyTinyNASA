@@ -18,7 +18,7 @@ class MarsRoverAdapter(val data : List<MarsRoverModel>) : RecyclerView.Adapter<M
             val dateTextView : TextView = itemView.findViewById(R.id.mars_item_date)
             val cameraInfoTextView : TextView = itemView.findViewById(R.id.mars_item_cameraInfo)
             val roverTextView : TextView = itemView.findViewById(R.id.mars_item_rover)
-            Glide.with(itemView.context).load(model.img_src).centerCrop().into(imgSrcImageView)
+            Glide.with(itemView.context).load(model.img_src.replace("http://", "https://")).centerCrop().into(imgSrcImageView)
             dateTextView.text = model.earth_date
             roverTextView.text = model.rover.name
             cameraInfoTextView.text = model.camera.name
