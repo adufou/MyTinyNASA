@@ -10,7 +10,12 @@ import retrofit2.http.Query
 
 interface ApiInterface {
     @GET("mars-photos/api/v1/rovers/{roverType}/photos")
-    fun getMarsPhotos(@Path(value="roverType", encoded = true) roverType : String?, @Query(value="camera") cameraType : String?, @Query(value="api_key") apiKey : String, @Query(value="earth_date") date : String?, @Query(value="page") page : String? = "1") : Call<MarsRoverResult>
+    fun getMarsPhotos(@Path(value="roverType", encoded = true) roverType : String?,
+                      @Query(value="camera") cameraType : String?,
+                      @Query(value="api_key") apiKey : String,
+                      @Query(value="earth_date") date : String?,
+                      @Query(value="sol") number: Number = 10,
+                      @Query(value="page") page : String? = "1") : Call<MarsRoverResult>
 
     @GET("events")
     fun getEonetEvents(
