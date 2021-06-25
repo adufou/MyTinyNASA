@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mytinynasa.R
+import com.example.mytinynasa.mars_rover.data.MarsRoverModel
 import com.example.mytinynasa.mars_rover.data.MarsRoverResult
 import com.example.mytinynasa.network.ApiClient
 import com.example.mytinynasa.network.ApiInterface
@@ -100,6 +101,12 @@ class MarsRoverFragment : Fragment() {
 
         var results: MarsRoverResult
 
+        if (recyclerView.adapter != null) {
+            (recyclerView.adapter as MarsRoverAdapter).data.clear()
+            recyclerView.adapter?.notifyDataSetChanged()
+        }
+
+
 //        this.progress.isVisible = true;
 
         val callback: Callback<MarsRoverResult> = object : Callback<MarsRoverResult> {
@@ -118,18 +125,13 @@ class MarsRoverFragment : Fragment() {
                     }
                     progress.isVisible = false;
                     results = response.body()!!
-                    recyclerView.adapter = MarsRoverAdapter(results.photos)
+                    recyclerView.adapter = MarsRoverAdapter(results.photos as MutableList<MarsRoverModel>)
                 } else {
                     Log.d("MyTinyNasa", "API Error : " + response.errorBody().toString())
                 }
             }
         }
-
-        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
-        val previousDate = Date().time - (3600 * 24 * 1000)
-        val newDate = simpleDateFormat.format(Date(previousDate))
-
-        service.getMarsPhotos(rover, camera, ApiClient.apiKey, newDate, sol.split('.')[0].toInt())
+        service.getMarsPhotos(rover, camera, ApiClient.apiKey, date, sol.split('.')[0].toInt())
             .enqueue(callback)
     }
 

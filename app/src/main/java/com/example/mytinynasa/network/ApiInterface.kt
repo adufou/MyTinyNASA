@@ -14,7 +14,7 @@ interface ApiInterface {
                       @Query(value="camera") cameraType : String?,
                       @Query(value="api_key") apiKey : String,
                       @Query(value="earth_date") date : String?,
-                      @Query(value="sol") number: Number = 10,
+                      @Query(value="sol") number: Number? = 10,
                       @Query(value="page") page : String? = "1") : Call<MarsRoverResult>
 
     @GET("events")

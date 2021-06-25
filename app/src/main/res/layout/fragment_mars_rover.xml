@@ -16,8 +16,8 @@
         <ProgressBar
             android:id="@+id/mars_progress_bar"
             style="?android:attr/progressBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
 
                 <Button
                     android:id="@+id/mars_rover_date_selection_button"
-                    style="?android:attr/buttonBarButtonStyle"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
@@ -50,7 +50,7 @@
 
                 <Button
                     android:id="@+id/mars_rover_rover_selection_button"
-                    style="?android:attr/buttonBarButtonStyle"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
@@ -62,7 +62,7 @@
 
                 <Button
                     android:id="@+id/mars_rover_camera_selection_button"
-                    style="?android:attr/buttonBarButtonStyle"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -72,6 +72,12 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
 
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sol Distance" />
             <com.google.android.material.slider.RangeSlider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

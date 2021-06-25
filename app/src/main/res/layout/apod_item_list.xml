@@ -25,6 +25,7 @@
         android:layout_marginBottom="60dp"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:text="Text d'essai oui super textr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apod_item_image"

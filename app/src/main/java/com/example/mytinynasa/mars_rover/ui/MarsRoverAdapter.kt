@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.mytinynasa.R
 import com.example.mytinynasa.mars_rover.data.MarsRoverModel
 
-class MarsRoverAdapter(val data : List<MarsRoverModel>) : RecyclerView.Adapter<MarsRoverAdapter.MarsRoverHolder>() {
+class MarsRoverAdapter(var data : MutableList<MarsRoverModel>) : RecyclerView.Adapter<MarsRoverAdapter.MarsRoverHolder>() {
     class MarsRoverHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(model : MarsRoverModel) {
