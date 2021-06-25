@@ -73,7 +73,7 @@ class ApodFragment : Fragment() {
 
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
         val end_date = simpleDateFormat.format(Date().time)
-        val start_date_long = Date().time - (7 * 24 * 3600 * 1000)
+        val start_date_long = Date().time - (6 * 24 * 3600 * 1000)
         val start_date = simpleDateFormat.format(start_date_long)
 
         service.getApodPhotos(start_date, end_date, apiKey).enqueue(callback)
@@ -84,8 +84,6 @@ class ApodFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val apodRecyclerView : RecyclerView = requireView().findViewById(R.id.apod_recycler)
-        //val apodRecyclerView : RecyclerView = (RecyclerView(requireContext())).findViewById(R.id.apod_recycler)
-        //val apodRecyclerView : RecyclerView = View.f
         apodRecyclerView.layoutManager = LinearLayoutManager(context)
         apodRecyclerView.setHasFixedSize(true)
         apodRecyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
