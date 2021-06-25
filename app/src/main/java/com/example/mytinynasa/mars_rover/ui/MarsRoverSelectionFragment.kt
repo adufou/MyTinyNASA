@@ -1,5 +1,7 @@
 package com.example.mytinynasa.mars_rover.ui
 
+import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,43 +11,56 @@ import android.widget.Button
 import androidx.fragment.app.FragmentTransaction
 import com.example.mytinynasa.R
 
-class  MarsRoverSelectionFragment : Fragment() {
+class MarsRoverSelectionFragment : Fragment() {
+    var settings: SharedPreferences? = null
+    var settings_editor: SharedPreferences.Editor? = null
+
+
+    fun switchToRoverFragment(roverName: String) {
+        settings_editor?.putString("rover", roverName)
+        settings_editor?.putString("camera", null)
+        settings_editor?.commit()
+        val roverFragment = MarsRoverFragment()
+        val transaction: FragmentTransaction = parentFragmentManager
+            .beginTransaction()
+            .addToBackStack(null)
+            .replace(R.id.mars_rover_rover_selection, roverFragment)
+        transaction.commit()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
+        settings = context?.getSharedPreferences("MARS", 0)!!
+        settings_editor = settings!!.edit()
         // Inflate the layout for this fragment
-        val root = inflater.inflate(R.layout.fragment_mars_rover_selection, container, false)
+        return inflater.inflate(R.layout.fragment_mars_rover_selection, container, false)
+    }
 
-        val buttonCuriosity = root.findViewById(R.id.rover_curiosity_cam_MAST) as Button
-        val buttonOpportunity = root.findViewById(R.id.rover_curiosity_cam_RHAZ) as Button
-        val buttonSpirit = root.findViewById(R.id.rover_curiosity_cam_FHAZ) as Button
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val buttonCuriosity = requireView().findViewById(R.id.rover_curiosity_cam_MAST) as Button
+        val buttonOpportunity = requireView().findViewById(R.id.rover_curiosity_cam_RHAZ) as Button
+        val buttonSpirit = requireView().findViewById(R.id.rover_curiosity_cam_FHAZ) as Button
+
+        when (settings?.getString("rover", "")) {
+            "Curiosity" -> buttonCuriosity.setBackgroundColor(Color.parseColor("#F9627D"))
+            "Opportunity" -> buttonOpportunity.setBackgroundColor(Color.parseColor("#F9627D"))
+            "Spirit" -> buttonSpirit.setBackgroundColor(Color.parseColor("#F9627D"))
+        }
 
         buttonCuriosity.setOnClickListener() {
-            val cameraSelection = MarsRoverCameraSelection("Curiosity")
-            val transaction : FragmentTransaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.nav_host_fragment_activity_main, cameraSelection)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            switchToRoverFragment("Curiosity")
         }
 
         buttonOpportunity.setOnClickListener() {
-            val cameraSelection = MarsRoverCameraSelection("Opportunity")
-            val transaction : FragmentTransaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.nav_host_fragment_activity_main, cameraSelection)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            switchToRoverFragment("Opportunity")
         }
 
         buttonSpirit.setOnClickListener() {
-            val cameraSelection = MarsRoverCameraSelection("Spirit")
-            val transaction : FragmentTransaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.nav_host_fragment_activity_main, cameraSelection)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            switchToRoverFragment("Spirit")
         }
-
-        return root
     }
 }

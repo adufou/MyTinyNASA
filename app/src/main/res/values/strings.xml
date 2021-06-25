@@ -31,6 +31,9 @@
 
     <string name="this_list_is_empty">This list is empty</string>
 
+    <string name="mars_rover_rover_selection_button">Rover Selection</string>
+    <string name="mars_rover_camera_selection_button">Camera Selection</string>
+
     <string name="mars_rover_image_description">Contains the image of the object thanks to the API call</string>
     <string name="mars_rover_choice_description">Please select a rover type.</string>
     <string name="mars_rover_camera_choice_description">Please select a camera type.</string>
@@ -51,4 +54,32 @@
     <string name="mars_rover_camera_ALL">All</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rover">Rover</string>
+    <string name="camera">Camera</string>
+    <string name="date">Date</string>
+
+
+    <string-array name="Curiosity">
+        <item>FHAZ,Front Hazard Avoidance Camera</item>
+        <item>RHAZ,Rear Hazard Avoidance Camera</item>
+        <item>MAST,Mast Camera</item>
+        <item>CHEMCAM,Chemistry and Camera Complex</item>
+        <item>MAHLI,Mars Hand Lens Imager</item>
+        <item>MARDI,Mars Descent Imager</item>
+        <item>NAVCAM,Navigation Camera</item>
+    </string-array>
+    <string-array name="Opportunity">
+        <item>FHAZ,Front Hazard Avoidance Camera</item>
+        <item>RHAZ,Rear Hazard Avoidance Camera</item>
+        <item>NAVCAM,Navigation Camera</item>
+        <item>PANCAM,Panoramic Camera</item>
+        <item>MINITES,Miniature Thermal Emission Spectrometer (Mini-TES)</item>
+    </string-array>
+    <string-array name="Spirit">
+        <item>FHAZ,Front Hazard Avoidance Camera</item>
+        <item>RHAZ,Rear Hazard Avoidance Camera</item>
+        <item>NAVCAM,Navigation Camera</item>
+        <item>PANCAM,Panoramic Camera</item>
+        <item>MINITES,Miniature Thermal Emission Spectrometer (Mini-TES)</item>
+    </string-array>
 </resources>

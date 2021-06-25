@@ -15,12 +15,6 @@
         android:name="com.example.mytinynasa.mars_rover.ui.MarsRoverFragment"
         android:label="@string/title_mars_rover"
         tools:layout="@layout/fragment_mars_rover_selection" >
-        <action
-            android:id="@+id/action_marsRoverSelectionFragment_to_marsRoverCuriosityCameraSelectionFragment"
-            app:destination="@id/marsRoverCuriosityCameraSelectionFragment" />
-        <action
-            android:id="@+id/action_marsRoverSelectionFragment_to_marsRoverOpportunitySpiritCameraSelectionFragment"
-            app:destination="@id/marsRoverOpportunitySpiritCameraSelectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/eonetFragment"
@@ -37,13 +31,7 @@
         android:id="@+id/marsRoverCuriosityCameraSelectionFragment"
         android:name="com.example.mytinynasa.mars_rover.ui.MarsRoverCameraSelection"
         android:label="@string/title_mars_rover"
-        tools:layout="@layout/fragment_mars_rover_camera_curiosity" />
-
-    <fragment
-        android:id="@+id/marsRoverOpportunitySpiritCameraSelectionFragment"
-        android:name="com.example.mytinynasa.mars_rover.ui.MarsRoverCameraSelection"
-        android:label="@string/title_mars_rover"
-        tools:layout="@layout/fragment_mars_rover_camera_opportunity_spirit" />
+        tools:layout="@layout/fragment_mars_rover_camera_selection" />
 
     <fragment
         android:id="@+id/marsRoverFragment"
