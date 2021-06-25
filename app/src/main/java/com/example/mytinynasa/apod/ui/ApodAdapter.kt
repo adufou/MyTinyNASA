@@ -18,7 +18,10 @@ class ApodAdapter(val data : List<ApodModel>) : RecyclerView.Adapter<ApodAdapter
             val titleTextView : TextView = itemView.findViewById(R.id.apod_title)
             val explanationTextView : TextView = itemView.findViewById(R.id.apod_explanation)
             val authorTextView : TextView = itemView.findViewById(R.id.apod_author)
-            Glide.with(itemView.context).load(model.url).centerCrop().into(imgSrcImageView)
+            if (model.media_type == "image")
+                Glide.with(itemView.context).load(model.url).centerCrop().into(imgSrcImageView)
+            else
+                Glide.with(itemView.context).load("https://file1.science-et-vie.com/var/scienceetvie/storage/images/8/6/86422/histoire-une-nuit-sans-fin.jpg?alias=original").override(1024, 768).centerCrop().into(imgSrcImageView)
             titleTextView.text = model.title
             explanationTextView.text = model.explanation.splitToSequence(".","?").first()
             authorTextView.text = model.copyright
