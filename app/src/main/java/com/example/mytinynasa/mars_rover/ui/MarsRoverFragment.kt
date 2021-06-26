@@ -46,11 +46,9 @@ class MarsRoverFragment : Fragment() {
     var date: String? = null
 
 
+    // Set Listener for date submit
     val dateSetListener =
         DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-            cal.set(Calendar.YEAR, year)
-            cal.set(Calendar.MONTH, monthOfYear)
-            cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
             var month = ""
             var day = ""
             if (monthOfYear < 10)
@@ -61,16 +59,18 @@ class MarsRoverFragment : Fragment() {
                 day = "0$dayOfMonth"
             else
                 day = dayOfMonth.toString()
+            date = "${year.toString()}-$month-$day"
             settings_editor?.putString("date", "${year.toString()}-$month-$day");
             settings_editor?.commit()
             getMarsPhotos()
         }
 
+    // Override function onCreateView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        //this.progress = requireView().findViewById(R.id.eonet_progress_bar)
+        // Load relative preferences
         settings = context?.getSharedPreferences("MARS", 0)!!
         settings_editor = settings!!.edit()
 
@@ -88,27 +88,32 @@ class MarsRoverFragment : Fragment() {
     }
 
     private fun getMarsPhotos() {
+        // Active loading UI element
         progress.isVisible = true
+
+        // Identify and set recyclerView (DataContent)
         val recyclerView: RecyclerView =
             requireView().findViewById(R.id.mars_rover_recycler)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.addItemDecoration(DividerItemDecoration(context,
             LinearLayoutManager.VERTICAL))
-        Log.d("Camera : ", "[MARS PHOTO] camera : " + settings?.getString("camera", ""))
+
+        // Retrofit
         val retrofit = ApiClient.getApiClient("https://api.nasa.gov/")
 
+        // Retrofit service instantiated
         val service = retrofit.create(ApiInterface::class.java)
 
+        // Api results object
         var results: MarsRoverResult
 
+        // Clear recyclerView for new data
         if (recyclerView.adapter != null) {
             (recyclerView.adapter as MarsRoverAdapter).data.clear()
             recyclerView.adapter?.notifyDataSetChanged()
         }
 
-
-//        this.progress.isVisible = true;
-
+        // Callback on api call response
         val callback: Callback<MarsRoverResult> = object : Callback<MarsRoverResult> {
             override fun onFailure(call: Call<MarsRoverResult>, t: Throwable) {
                 Log.d("MyTinyNasa", "API Error " + t.message)
@@ -131,20 +136,28 @@ class MarsRoverFragment : Fragment() {
                 }
             }
         }
+
+        // Make api call through API Interface
         service.getMarsPhotos(rover, camera, ApiClient.apiKey, date, sol.split('.')[0].toInt())
             .enqueue(callback)
     }
 
+    // Override function onViewCreated
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        // Call same function on Super
         super.onViewCreated(view, savedInstanceState)
+
+        // Identify loading UI element
+        // Set it to visible
         progress = requireView().findViewById(R.id.mars_progress_bar)
         progress.isVisible = true
 
-        val marsRoverRecyclerView: RecyclerView =
-            requireView().findViewById(R.id.mars_rover_recycler)
-        marsRoverRecyclerView.layoutManager = LinearLayoutManager(context)
-        marsRoverRecyclerView.addItemDecoration(DividerItemDecoration(context,
-            LinearLayoutManager.VERTICAL))
+        // Identify and set recyclerView (DataContent)
+//        val marsRoverRecyclerView: RecyclerView =
+//            requireView().findViewById(R.id.mars_rover_recycler)
+//        marsRoverRecyclerView.layoutManager = LinearLayoutManager(context)
+//        marsRoverRecyclerView.addItemDecoration(DividerItemDecoration(context,
+//            LinearLayoutManager.VERTICAL))
 
         // RETROFIT
         getMarsPhotos()
@@ -186,9 +199,18 @@ class MarsRoverFragment : Fragment() {
             requireView().findViewById(R.id.mars_rover_date_selection_button)
         filter_date_button.setOnClickListener {
             val c = Calendar.getInstance()
+
+            val lastDate = settings?.getString("date", null)
+            if (lastDate != null) {
+                c.set(Calendar.YEAR, lastDate.substring(0, 4).toInt())
+                c.set(Calendar.MONTH, lastDate.substring(5, 7).toInt())
+                c.set(Calendar.DAY_OF_MONTH, lastDate.substring(8, 10).toInt())
+            }
+
             val year = c.get(Calendar.YEAR)
             val month = c.get(Calendar.MONTH)
             val day = c.get(Calendar.DAY_OF_MONTH)
+
 
             val dpd = DatePickerDialog(
                 requireContext(),

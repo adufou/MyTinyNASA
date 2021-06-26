@@ -34,6 +34,7 @@ class EonetFragment : Fragment() {
     var settings : SharedPreferences? = null// = context?.getSharedPreferences("EONET", 0)!!
     var settings_editor : SharedPreferences.Editor? = null// = settings.edit()
 
+    // Override function onCreateView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,6 +48,7 @@ class EonetFragment : Fragment() {
         return inflater.inflate(R.layout.eonet_fragment, container, false)
     }
 
+    // Override function onViewCreated
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -108,14 +110,5 @@ class EonetFragment : Fragment() {
             transaction.replace(R.id.eonet_fragment, filter_fragment)
             transaction.commit()
         }
-
-        //if (data != null)
-
-       /* else {
-            eonetRecyclerView.visibility = View.GONE
-            val eonetEmptyTextView : TextView = requireView().findViewById(R.id.fragment_eonet_emptylist)
-            eonetEmptyTextView.visibility = View.VISIBLE
-        }*/
-
     }
 }

@@ -31,6 +31,8 @@ class EonetAdapter(private val data : List<Event>) : RecyclerView.Adapter<EonetA
         val magnitudeTextView : TextView = rowView.findViewById(R.id.eonet_item_magnitude)
     }
 
+    // Override function onCreateViewHolder
+    // Handling when RecyclerView need new ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EonetHolder {
         val viewHolder : EonetHolder
         val rowView : View = LayoutInflater.from(parent.context).inflate(R.layout.eonet_list_item, parent, false)
@@ -40,12 +42,16 @@ class EonetAdapter(private val data : List<Event>) : RecyclerView.Adapter<EonetA
         return viewHolder
     }
 
+    // Override function onBindViewHolder
     override fun onBindViewHolder(holder: EonetHolder, position: Int) {
+        // Set data text
         holder.titleTextView.text = data[position].title
 
+        // Show data
         holder.descriptionTitleTextView.isVisible = true
         holder.descriptionTextView.isVisible = true
 
+        // Hide data
         data[position].description?.let {
             holder.descriptionTitleTextView.isVisible = false
             holder.descriptionTextView.isVisible = false
@@ -65,6 +71,7 @@ class EonetAdapter(private val data : List<Event>) : RecyclerView.Adapter<EonetA
         }
         holder.typeTextView.text = str
 
+        // Format date
         val df_in = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US)
         val df_out = SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss", Locale.US)
 

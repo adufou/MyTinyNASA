@@ -24,6 +24,7 @@ class EonetFilterFragment : Fragment() {
     var settings : SharedPreferences? = null// = context?.getSharedPreferences("EONET", 0)!!
     var settings_editor : SharedPreferences.Editor? = null// = settings.edit()
 
+    // Override function onCreateView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,9 +35,13 @@ class EonetFilterFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_eonet_filter, container, false)
     }
 
+    // Override function onViewCreated
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        // Call same function on Super
         super.onViewCreated(view, savedInstanceState)
 
+        // Identify apply filter button
+        // Set Listener on click
         val apply : MaterialButton = requireView().findViewById(R.id.eonet_filter_apply)
         apply.setOnClickListener {
             // CLOSE KEYBOARD
