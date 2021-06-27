@@ -22,9 +22,12 @@ class ApodAdapter(val data : List<ApodModel>) : RecyclerView.Adapter<ApodAdapter
                 Glide.with(itemView.context).load(model.url).centerCrop().into(imgSrcImageView)
             else
                 Glide.with(itemView.context).load("https://file1.science-et-vie.com/var/scienceetvie/storage/images/8/6/86422/histoire-une-nuit-sans-fin.jpg?alias=original").override(1024, 768).centerCrop().into(imgSrcImageView)
-            titleTextView.text = model.title
+            if (model.title != null)
+                titleTextView.text = model.title.splitToSequence(".","?").first()
+            if (model.explanation != null)
             explanationTextView.text = model.explanation.splitToSequence(".","?").first()
-            authorTextView.text = model.copyright
+            if (model.copyright != null)
+                authorTextView.text = model.copyright.splitToSequence(".","?").first()
         }
     }
 
