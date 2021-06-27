@@ -152,13 +152,6 @@ class MarsRoverFragment : Fragment() {
         progress = requireView().findViewById(R.id.mars_progress_bar)
         progress.isVisible = true
 
-        // Identify and set recyclerView (DataContent)
-//        val marsRoverRecyclerView: RecyclerView =
-//            requireView().findViewById(R.id.mars_rover_recycler)
-//        marsRoverRecyclerView.layoutManager = LinearLayoutManager(context)
-//        marsRoverRecyclerView.addItemDecoration(DividerItemDecoration(context,
-//            LinearLayoutManager.VERTICAL))
-
         // RETROFIT
         getMarsPhotos()
 
