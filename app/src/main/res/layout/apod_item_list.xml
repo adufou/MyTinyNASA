@@ -55,7 +55,7 @@
     <ImageView
         android:id="@+id/apod_item_image"
         android:layout_width="match_parent"
-        android:layout_height="380dp"
+        android:layout_height="300dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
