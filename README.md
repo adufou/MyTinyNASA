@@ -10,6 +10,6 @@ The team is composed of 4 MTI students in 4th grade in EPITA.
 
 # API KEY
 
-The generated API key is the followxing:
+The generated API key is the following:
 
 MwyRNpzVidCbG6RmQ1zqiqVriYSdJThatCRIMQi6
